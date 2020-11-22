@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commando Settings</title>
+</head>
+<body>
+    <div><!-- About -->
+        <h1>ABOUT</h1>
+        <p>        The goal of this extension is to let user use the browser much faster.
+            It includes few tools 
+            InSearchBar Comando
+            RightClick Comando
+            PageScritp Comando
+            List Comando
+        </p>
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+
+    </div>
+    <div><!--Manuals-->
+        <h1>
+            MANUALS
+        </h1>
+        <p>
+            Usage:
+    
+            In a address bar(where the URL is typed) write '@' then hit 'TAB' and send the message to the commando.
+        </p>
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+
+        <p>
+            Default message build:[Commando's control] + [white_space] + message <br>
+            Full Message build:[Commando modifire]+ [white_space] + [Commando's control] + [white_space] + message <br>
+            Modifires:<br>
+            '-' updates the curent tab<br>
+            '+' adds new tab<br>
+            '*' adds new inactive tab
+        </p>
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+
+        <p>
+            Commando's control can not start with( '-' or '+' or '*' or '!' or '@' or '#' or '/' or '?') or include (white_space)
+        </p>
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+
+        <p>
+            Right Click Commandos: mark the message >>> right click >>> chose commando
+        </p>
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+
+        <p>
+            Page script if activated is letting user to quick interactions within a webPage 
+            hold ALT to see possible interactions on the page then click CTRL and chose "go to" release the CTRL
+        </p>
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+
+    </div>
+    <div><!-- MainSettings-->
+        <h1>
+            MainSettings
+        </h1>
+        <p>CommandoRightClick </p> <button type="button" id="ComandoRightClick_btn">I/O</button>
+        <p>PageScript </p><button id="PageScript_btn" >I/O</button>
+        <p>
+            Default Tab Action for Comando<br>
+            0 maps '-'<br>
+             1 maps '+'<br>
+              2 maps '*'<br>
+            (0/1/2)
+    </p>
+        <textarea>0</textarea>
+        <button id="DefaultTabAction_btn">SET</button>
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+
+    </div>
+    <div><!--Example-->
+        <h1>Example</h1>
+        <h4>Commando Example 1(quick Wiki search)</h4>
+        <p>
+            Start fill: https://en.wikipedia.org/w/index.php?search=<br>
+            End fill: &title=Special%3ASearch&go=Go&ns0=1<br>
+            Control: wiki<br>
+            Description: Wikipedia
+        </p>
+        <p>
+            Message: wiki WWII <br>
+            Action: (Redirects to Wikipedia's page about WWII)
+        </p>
+
+        <h4>Commando Example 2 (quick YouTube search)</h4>
+        <p>
+            Start fill: https://www.youtube.com/results?search_query= <br>
+            End fill:<br>
+            Control: yt <br>
+            Description: YouTube
+        </p>
+        <p>
+            Message: yt Cute cats <br>
+            Action: (Redirects to yt page with a search: Cute cats)
+        </p>
+        <p>----------------------------------------------------------------------------------------------------------------------</p>
+
+        <h2>Commando Example 2</h2>
+
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+    </div>
+    <div><!-- Add Commando-->
+        <h1>Add Commando</h1>
+        <p> Commando Control: <textarea>Cmd</textarea></p>
+        <p>Commando Description: <textarea>Commando</textarea></p>
+        <p>Commando RightCLick Enabled(TRUE/FALSE def = TRUE) <textarea>TRUE</textarea></p>
+        <p>Start Fill: <textarea>https://en.wikipedia.org/w/index.php?search=</textarea></p>
+        <p>End Fill: <textarea>&title=Special%3ASearch&go=Go&ns0=1</textarea></p>
+        <button id="AddCommando_btn">ADD</button>
+    </div>
+    <div><!-- Add Profile-->
+        <h1>Add Profile</h1>
+        <p>
+            Profile Name:
+                <textarea>ProfileName</textarea>
+         </p>
+         <p>
+            Profile's links:
+                <textarea>paths separate by [spacebar]</textarea>
+         </p>
+        <button id="AddProfile_btn">ADD</button>
+    </div>
+    <div> <!-- SetSettings -->
+        <h1>
+            Set Settings
+       </h1>
+       <h4>
+           CommandoRightClick
+       </h4>
+       <p>
+           Enabled/Disabled
+       </p>
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+
+       <h4>
+           PageScript
+       </h4>
+       <p>
+           Enabled/Disabled
+       </p>
+       <p>----------------------------------------------------------------------------------------------------------------------</p>
+
+       <h4>
+           Default Tab Action
+       </h4>
+       <p>
+            +
+       </p>
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+
+       <p>
+        To Reload the settings HIT (F5) <br>
+        Set settings to default <button id="SetDefault_btn">O</button>
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+
+    </p>
+    </div>
+    <div><!-- ListOfCommandos(script) -->
+        <h1>
+            LIST OF COMMANDOS
+        </h1>
+        <p>[Commando_Name] [Comando_Description] ComandoRightClick: [Comando_RightClick_Enabled] <button>I/O</button> [Comando_StartFill] [Comando_EndFill]</p>
+        <button id="CommandoIDremove_btn">REMOVE</button>
+    </div>
+    <div><!-- ListOfProfiles(script) -->
+        <h1>
+            LIST OF PROFILES
+        </h1>
+        <h3>Profile_Name</h3>
+        <p>Links</p>
+        <button id="ListIDremove_btn">REMOVE</button>
+    </div>
+</body>
+<footer>
+<div>
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+    <p>----------------------------------------------------------------------------------------------------------------------</p>
+    <p>Made by: Arkadiusz Amilkiewicz 2020</p>
+    <a href="https://www.w3schools.com">more creations</a>
+    <script src="SettingsUI.js"></script>
+</div>
+</footer>
+</html>
