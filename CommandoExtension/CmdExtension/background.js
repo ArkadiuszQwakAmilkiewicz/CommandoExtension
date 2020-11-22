@@ -1,5 +1,4 @@
 console.log("background runs")
-
 //CREATEMODE 0 gives '-' 1 gives '+' 2 gives '*'
 var defCreationMode = 0;
 //COMMANDMODE 0 gives commando 1 gives '@' 2 gives '#'
@@ -48,13 +47,13 @@ function Commando(cmd, description, startFill, endFill, isURL) {
 
 
 //#region USELESS IN THE FUTURE
-var cmdmando = new Commando("go", "Google","https://www.google.com/search?source=hp&q=", "", true);
-var cmdmando1 = new Commando("wiki", "Wikipedia","https://en.wikipedia.org/wiki/Special:Search?search=", "&go=Go&ns0=1", true);
-var cmdmando2 = new Commando("yt", "YouTube","https://www.youtube.com/results?search_query=", "", true);
-var ListOfCommandos = [];
-ListOfCommandos.push(cmdmando);
-ListOfCommandos.push(cmdmando1);
-ListOfCommandos.push(cmdmando2);
+ var cmdmando = new Commando("go", "Google","https://www.google.com/search?source=hp&q=", "", true);
+ var cmdmando1 = new Commando("wiki", "Wikipedia","https://en.wikipedia.org/wiki/Special:Search?search=", "&go=Go&ns0=1", true);
+ var cmdmando2 = new Commando("yt", "YouTube","https://www.youtube.com/results?search_query=", "", true);
+ var ListOfCommandos = [];
+ ListOfCommandos.push(cmdmando);
+ ListOfCommandos.push(cmdmando1);
+ ListOfCommandos.push(cmdmando2);
 //#endregion
 //#region  Defining modifires and list of modifires
 var CreateModifireNew = '+';
@@ -73,17 +72,20 @@ ListOfModifires.push(URLmodifire);
 ListOfModifires.push(FILEmodifire);
 //#endregion
 
+//#region  OverlayWindow
 
+//#endregion OverlayWindow
 
 //#region Adding Listeners
 //CLICK on extension listener
 chrome.browserAction.onClicked.addListener(function(tab){
     chrome.tabs.create({url: '/SettingsPage/Settings.html'})
 })
+
 //Message from omnibox listener
 chrome.omnibox.onInputEntered.addListener(function(text){
     
-
+    console.log("WORKS");
     var com = text.split(" ", 1);
     //FULL CMD later PURE CMD(without modifires)
     var command = com[0];
@@ -170,5 +172,3 @@ chrome.omnibox.onInputEntered.addListener(function(text){
     }
 })
 //#endregion
-
-
