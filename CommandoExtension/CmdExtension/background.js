@@ -47,29 +47,23 @@ function Commando(cmd, description, startFill, endFill, isURL) {
 
 
 //#region USELESS IN THE FUTURE
- var cmdmando = new Commando("go", "Google","https://www.google.com/search?source=hp&q=", "", true);
- var cmdmando1 = new Commando("wiki", "Wikipedia","https://en.wikipedia.org/wiki/Special:Search?search=", "&go=Go&ns0=1", true);
- var cmdmando2 = new Commando("yt", "YouTube","https://www.youtube.com/results?search_query=", "", true);
- var ListOfCommandos = [];
- ListOfCommandos.push(cmdmando);
- ListOfCommandos.push(cmdmando1);
- ListOfCommandos.push(cmdmando2);
+ var ListOfCommandos = [
+    new Commando("go", "Google","https://www.google.com/search?source=hp&q=", "", true),
+    new Commando("wiki", "Wikipedia","https://en.wikipedia.org/wiki/Special:Search?search=", "&go=Go&ns0=1", true),
+    new Commando("yt", "YouTube","https://www.youtube.com/results?search_query=", "", true)
+ ]
 //#endregion
 //#region  Defining modifires and list of modifires
-var CreateModifireNew = '+';
-var CreateModifireNewInactive = '*';
-var CreateModifireUpdate = '-';
-var PinModifire = '!';
-var URLmodifire = '@';
-var FILEmodifire = '#';
+const CreateModifireNew = '+';
+const CreateModifireNewInactive = '*';
+const CreateModifireUpdate = '-';
+const PinModifire = '!';
+const URLmodifire = '@';
+const FILEmodifire = '#';
 
-var ListOfModifires = [];
-ListOfModifires.push(CreateModifireNew);
-ListOfModifires.push(CreateModifireNewInactive);
-ListOfModifires.push(CreateModifireUpdate);
-ListOfModifires.push(PinModifire);
-ListOfModifires.push(URLmodifire);
-ListOfModifires.push(FILEmodifire);
+const ListOfModifires = [
+    CreateModifireNew, CreateModifireNewInactive, CreateModifireUpdate, PinModifire, URLmodifire, FILEmodifire
+]
 //#endregion
 
 //#region  OverlayWindow
@@ -81,7 +75,6 @@ ListOfModifires.push(FILEmodifire);
 chrome.browserAction.onClicked.addListener(function(tab){
     chrome.tabs.create({url: '/SettingsPage/Settings.html'})
 })
-
 //Message from omnibox listener
 chrome.omnibox.onInputEntered.addListener(function(text){
     
