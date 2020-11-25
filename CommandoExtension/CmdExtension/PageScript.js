@@ -16,9 +16,7 @@ searchOverlayWindow.style =
 searchOverlayWindow.src = browser.extension.getURL("box.html");
 searchOverlayWindow.onload = Show;
 
-searchOverlayWindow.contentDocument.getElementById("message").addEventListener('input', messageFromBox);
-
-
+//key Press handler in Content
 function keyPressed(e){
     
     //CHECKS if it's a letter and if the target isn't of type input like searchBoxes
@@ -29,22 +27,37 @@ function keyPressed(e){
     }
 }
 
-var isShown = false;
 function Show(){
     const window = searchOverlayWindow.contentWindow;
     const doc = searchOverlayWindow.contentDocument;
     const searchBox = doc.getElementById("commandoBox");
-    const closeBox = doc.getElementById("message");
-
-    if(isShown){
-        closeBox();
-        isShown = false;
-    }else{
-        isShown = true;
-    }
+    //adding listener for pressed keys
+    window.document.addEventListener('keydown', keysIFrame)
+    //focusing on input box
     window.focus();
     searchBox.focus();
 
+}
+//key Press handler in  IFrame
+function keysIFrame(e){
+    //WHEN ENTER PRESSED PROCESSMESSAGE
+    if(e.keyCode === 13){
+        const doc = searchOverlayWindow.contentDocument;
+        const searchBox = doc.getElementById("commandoBox");
+
+       ProcessMessage(searchBox.value);
+    }
+    //WHEN ESCAPE PRESSED EXIT
+    if(e.keyCode === 27){
+        closeBox();
+    }
+}
+function ProcessMessage(msg){
+    console.log("message: " + msg);
+    //PROCESSING
+    //CODE
+    //TALKING WITH BACKGROUND SCRIPT WHICH HANDLES THE MESSAGE
+    closeBox();
 }
 function closeBox(){
     searchOverlayWindow.remove();
