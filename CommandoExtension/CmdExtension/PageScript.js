@@ -16,6 +16,9 @@ searchOverlayWindow.style =
 searchOverlayWindow.src = browser.extension.getURL("box.html");
 searchOverlayWindow.onload = Show;
 
+searchOverlayWindow.contentDocument.getElementById("message").addEventListener('input', messageFromBox);
+
+
 function keyPressed(e){
     
     //CHECKS if it's a letter and if the target isn't of type input like searchBoxes
@@ -26,12 +29,23 @@ function keyPressed(e){
     }
 }
 
+var isShown = false;
 function Show(){
     const window = searchOverlayWindow.contentWindow;
     const doc = searchOverlayWindow.contentDocument;
     const searchBox = doc.getElementById("commandoBox");
+    const closeBox = doc.getElementById("message");
 
+    if(isShown){
+        closeBox();
+        isShown = false;
+    }else{
+        isShown = true;
+    }
     window.focus();
     searchBox.focus();
 
+}
+function closeBox(){
+    searchOverlayWindow.remove();
 }
