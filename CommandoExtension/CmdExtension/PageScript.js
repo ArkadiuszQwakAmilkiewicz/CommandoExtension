@@ -16,14 +16,19 @@ searchOverlayWindow.style =
 searchOverlayWindow.src = browser.extension.getURL("box.html");
 searchOverlayWindow.onload = Show;
 
+var firstLetter;
 //key Press handler in Content
 function keyPressed(e){
     
     //CHECKS if it's a letter and if the target isn't of type input like searchBoxes
     if(e.keyCode > 64 && e.keyCode  < 91 && e.target.nodeName != "INPUT" && e.target.nodeName !="SELECT" && e.target.nodeName != "TEXTAREA"){
         console.log(e.key);
+        firstLetter = e.key;
         //CODE
+
         document.body.appendChild(searchOverlayWindow);
+        
+
     }
 }
 
@@ -34,8 +39,11 @@ function Show(){
     //adding listener for pressed keys
     window.document.addEventListener('keydown', keysIFrame)
     //focusing on input box
+
+    searchOverlayWindow.focus();
     window.focus();
     searchBox.focus();
+    searchBox.value = firstLetter.toString();
 
 }
 //key Press handler in  IFrame
